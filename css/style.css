@@ -1,0 +1,96 @@
+html
+{
+  background-image:url('../img/background.jpg');
+  background-size:100%;
+  background-repeat:repeat-y;
+}
+#header
+{
+  padding:10px;
+  margin:10px;
+  text-align:center;
+  font-style:bold;
+  background-color:yellow;
+  border-style:groove;
+}
+
+#header p
+{
+  text-align:right;
+  margin-top:-20px;
+}
+
+#leftmenu
+{
+  margin-left:10px;
+  padding-left:5px;
+  float:left;
+  width:150px;
+  background-color:blue;
+  color:white;
+  border-style:ridge;
+}
+
+#leftmenu a
+{
+  text-decoration:none;
+  color:white;
+}
+
+#leftmenu a:hover
+{
+  color:black;
+}
+
+#content
+{
+  padding:20px;
+  background-color:beige;
+  margin-left:200px;
+  margin-right:200px;
+  border-style:groove;
+}
+
+#content p
+{
+  text-indent:20px;
+  text-align:justify;
+}
+
+#content ul li
+{
+  list-style-type:none;
+  display:inline;
+}
+
+#content table, th, td
+{
+  border:1px solid black;
+}
+
+#content a:link, a:visited, a:active
+{
+  text-decoration:none;
+  color:black;
+}
+
+#content a:hover
+{
+  color:blue;
+}
+
+#flang a
+{
+  background-color:white;
+  border-width:1px;
+  border-style:solid;
+  border-radius:10px;
+  padding:5px;
+}
+
+#flang a:hover
+{
+  background-color:grey;
+  color:black;
+}
+
