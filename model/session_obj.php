@@ -25,7 +25,7 @@ class Session {
    */
   function _save() {
     global $db;
-    if (empty($this->_user_id)) {
+    if (empty($this->_session_time)) {
       $sql = "INSERT INTO session (user_id, session_id, time) ";
       $sql.= "values (". $this->get_user_id(). ", ";
       $sql.= "'". $this->get_session_id(). "', ";
