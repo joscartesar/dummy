@@ -17,6 +17,7 @@ while ($row = mysqli_fetch_array($result)) {
 <?php if ($user->get_user_rol() == "admin") { ?>
     <li><a href="index.php?page=admin&flang=tags">Tags</a></li>
     <li><a href="index.php?page=admin&flang=users">Users</a></li>
+    <li><a href="index.php?page=admin&flang=roles">Roles</a></li>
 <?php } ?>
   </ul>
 </div>
@@ -31,6 +32,9 @@ if (isset($_GET['flang'])) {
       break;
     case "users":
       include_once("admin_user.php");
+      break;
+    case "roles":
+      include_once("admin_rol.php");
       break;
     default:
       include_once("admin_post.php");

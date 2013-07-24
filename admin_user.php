@@ -17,8 +17,8 @@ $users = $user->_load_all();
     <tr>
       <td><?php print $key; ?></td>
       <td><?php print $value['username']; ?></td>
-      <td><a href="index.php?page=edit_user&post_id=<?php print $key; ?>">editar</a></td>
-      <td><a href="index.php?page=delete_user&post_id=<?php print $key; ?>">eliminar</a></td>
+      <td><a href="index.php?page=edit_user&user_id=<?php print $key; ?>">editar</a></td>
+      <td><a href="index.php?page=delete_user&user_id=<?php print $key; ?>">eliminar</a></td>
     </tr>
 <?php } ?>
   </tbody>

@@ -28,8 +28,8 @@ while ($row = mysqli_fetch_array($result)) {
       <td><?php print $key; ?></td>
       <td><?php print $value['title']; ?></td>
     <?php if ($user->get_user_rol() == "admin") { ?>
-      <td><a href="index.php?page=edit_post&post_id='. $key. '"> editar </a></td>
-      <td><a href="index.php?page=delete_post&post_id='. $key. '">  eliminar </a></td>
+      <td><a href="index.php?page=edit_post&post_id='<?php print $key; ?>'"> editar </a></td>
+      <td><a href="index.php?page=delete_post&post_id='<?php print $key; ?>'">  eliminar </a></td>
     <?php } ?>
     </tr>
 <?php } ?>

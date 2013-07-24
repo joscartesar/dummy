@@ -62,7 +62,7 @@ class Rol {
   function _load($rol_id) {
     global $db;
     $sql = "SELECT * FROM rol ";
-    $sql.? "WHERE rol_id=". $rol_id;
+    $sql.= "WHERE rol_id=". $rol_id;
     if ($row = $db->fetch_row($sql)) {
       $this->set_rol_id($rol_id);
       $this->set_rol_name($row['name']);

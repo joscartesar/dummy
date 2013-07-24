@@ -76,6 +76,15 @@ setlocale(LC_ALL, "es_ES.UTF-8");
             case "delete_user":
               include_once("delete_user_form.php");
               break;
+            case "add_rol":
+              include_once("add_rol_form.php");
+              break;
+            case "edit_rol":
+              include_once("edit_rol_form.php");
+              break;
+            case "delete_rol":
+              include_once("delete_rol_form.php");
+              break;
             default:
               include_once("list.php");
         }
