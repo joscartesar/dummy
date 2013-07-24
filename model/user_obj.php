@@ -143,11 +143,11 @@ class User {
    */
   function get_user_rol() {
     global $db;
-    $sql = "SELECT r.name AS name FROM user AS u ";
-    $sql.= "INNER JOIN user_rol AS ur ON u.user_id=ur.user_id ";
-    $sql.= "INNER JOIN rol AS r ON ur.rol_id=r.rol_id";
+    $sql = "SELECT r.name AS name FROM rol AS r ";
+    $sql.= "INNER JOIN user_rol AS ur ON r.rol_id=ur.rol_id ";
+    $sql.= "WHERE ur.user_id=". $this->get_id();
     if ($row = $db->fetch_row($sql)) {
-      $this->_user_rol = $row['name'];
+      return $row['name'];
     }
   }
 

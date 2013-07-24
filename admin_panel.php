@@ -1,5 +1,6 @@
 <?php
 include_once("model/db.php");
+include_once("model/user_obj.php");
 
 $sql = "SELECT post_id, title FROM post";
 $result = $db->fetch($sql);
@@ -13,8 +14,10 @@ while ($row = mysqli_fetch_array($result)) {
 <div id="flang">
   <ul>
     <li><a href="index.php?page=admin&flang=posts">Posts</a></li>
+<?php if ($user->get_user_rol() == "admin") { ?>
     <li><a href="index.php?page=admin&flang=tags">Tags</a></li>
     <li><a href="index.php?page=admin&flang=users">Users</a></li>
+<?php } ?>
   </ul>
 </div>
 <?php
