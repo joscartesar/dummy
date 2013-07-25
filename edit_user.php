@@ -8,7 +8,8 @@ $user_edit->set_username($_POST['username']);
 $user_edit->_save(sha1($_POST['password']));
 $rol = new Rol;
 $rol->_load($_POST['rol_list']);
-$rol->rol2user($user_edit->get_id());
+$rol->unroluser($_POST['user_id']);
+$rol->rol2user($_POST['user_id']);
 
 header('Location: http://localhost/dummy/index.php?page=admin&flang=users');
 ?>

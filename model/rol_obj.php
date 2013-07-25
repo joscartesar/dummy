@@ -106,13 +106,23 @@ class Rol {
   }
 
   /**
-   * Set rot to user
+   * Set rol to user
    * @param: int $user_id
    */
   function rol2user($user_id) {
     global $db;
     $sql = "INSERT INTO user_rol (user_id, rol_id) ";
     $sql.= "VALUES (". $user_id. ", ". $this->get_rol_id(). ")";
+    $db->fetch($sql);
+  }
+
+  /**
+   * Unset rol to user
+   * @param: int $user_id
+   */
+  function unroluser($user_id) {
+    global $db;
+    $sql = "DELETE FROM user_rol WHERE user_id=". $user_id;
     $db->fetch($sql);
   }
 }

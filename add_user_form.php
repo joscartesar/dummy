@@ -4,11 +4,11 @@ include_once("model/rol_obj.php");
 
 $sql = "SELECT * FROM rol";
 $result = $db->fetch($sql);
-$rol = array();
+$roles = array();
 while ($row = mysqli_fetch_array($result)) {
   $id = $row['rol_id'];
   $content = array("name" => $row['name']);
-  $rol[$id] = $content;
+  $roles[$id] = $content;
 }
 ?>
 <fieldset>
@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_array($result)) {
   </form>
   <label for="id_select_rol">Rol: </label>
   <select id="id_select_rol" name="rol_list" form="add_user_form">
-    <?php foreach ($rol as $key => $value) { ?>
+    <?php foreach ($roles as $key => $value) { ?>
     <option value="<?php print $key; ?>"><?php print $value['name']; ?></option>
     <?php } ?>
   </select>
