@@ -56,7 +56,8 @@ class User {
   function _delete() {
     global $db;
     $sql = "DELETE FROM user WHERE user_id=". $this->get_id();
-    if ($db->fetch($sql)) {
+    $sql2 = "DELETE FROM user_rol WHERE user_id=". $this->get_id();
+    if ($db->fetch($sql) && $db->fetch($sql2)) {
       return TRUE;
     }
     else {

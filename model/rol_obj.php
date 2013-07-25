@@ -104,5 +104,16 @@ class Rol {
   function set_rol_name($rol_name) {
     $this->_rol_name = $rol_name;
   }
+
+  /**
+   * Set rot to user
+   * @param: int $user_id
+   */
+  function rol2user($user_id) {
+    global $db;
+    $sql = "INSERT INTO user_rol (user_id, rol_id) ";
+    $sql.= "VALUES (". $user_id. ", ". $this->get_rol_id(). ")";
+    $db->fetch($sql);
+  }
 }
 ?>
