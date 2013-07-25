@@ -11,5 +11,6 @@ while ($row = mysqli_fetch_array($result)) {
   $roles[$id] = $content;
 }
 print json_encode($roles);
+exit(0);
 
 ?>
