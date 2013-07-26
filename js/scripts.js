@@ -1,23 +1,21 @@
-$(document).ready(function(){
+$(document).ready(function() {
   $("#admin_tag").hide();
 //  console.log($(".contentImage"));
 
-  $("#flang_post").click(function(){
+  $("#flang_post").click(function() {
     displayAdminPost();
   });
-  $("#flang_tag").click(function(){
+  $("#flang_tag").click(function() {
     displayAdminTag();
   });
 });
 
-function displayAdminPost()
-{
+function displayAdminPost() {
   $("#admin_post").show();
   $("#admin_tag").hide();
 }
 
-function displayAdminTag()
-{
+function displayAdminTag() {
   $("#admin_tag").show();
   $("#admin_post").hide();
 }

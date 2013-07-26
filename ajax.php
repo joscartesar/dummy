@@ -1,16 +1,32 @@
 <?php
-include_once("model/db_obj.php");
+include_once("model/db.php");
 include_once("model/rol_obj.php");
+include_once("utils.php");
 
-$sql = "SELECT * FROM rol";
-$result = $db->fetch($sql);
-$roles = array();
-while ($row = mysqli_fetch_array($result)) {
-  $id = $row['rol_id'];
-  $content = array("name" => $row['name']);
-  $roles[$id] = $content;
+$response = array();
+if (!isset($_POST['filter'])) {
+  $sql = "SELECT * FROM rol";
+  $result = $db->fetch($sql);
+  while ($row = mysqli_fetch_array($result)) {
+    $id = $row['rol_id'];
+    $content = array("name" => $row['name']);
+    $response[$id] = $content;
+  }
 }
-print json_encode($roles);
+else {
+  $sql = "SELECT * FROM rol ";
+  $sql.= "WHERE name REGEXP ";
+  $sql.= "'^". $_POST['filter']. "'";
+  if ($result = $db->fetch($sql)) {
+    while ($row = mysqli_fetch_array($result)) {
+      $id = $row['rol_id'];
+      $content = array("name" => $row['name']);
+      $response[$id] = $content;
+    }
+  }
+}
+
+print json_encode($response);
 exit(0);
 
 ?>
