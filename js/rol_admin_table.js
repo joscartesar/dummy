@@ -21,9 +21,7 @@ $(document).ready(function() {
 //now try: with keyup (warning: prevent from multiple ajax call typing some letters
   $("#id_search").keyup(function() {
     var filter_value = $(this).val();
-    clearTimeout($.data(this, 'timer'));
-    var wait = setTimeout(function(filter_value) {
-    $.ajax({
+    $.ajaxQueue({
       type: "POST",
       url: "ajax.php",
       data: {
@@ -45,8 +43,24 @@ $(document).ready(function() {
       },
       error: function() {}
     });
-}, 500);
-    $(this).data('timer', wait);
   });
+//redefines jQuery function to enqueue ajax calls
+  (function($) {
+    var ajaxQueue = $({});
+    $.ajaxQueue = function(ajaxOpts) {
+      var oldComplete = ajaxOpts.complete;
+      ajaxQueue.queue(function(next) {
+        ajaxOpts.complete = function() {
+          if (oldComplete) {
+            oldComplete.apply(this, arguments);
+          }
+          else {
+            next();
+          }
+        };
+        $.ajax(ajaxOpts);
+      });
+    };
+  })(jQuery);
 });
 

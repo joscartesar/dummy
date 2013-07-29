@@ -44,6 +44,14 @@ class Db {
     $row = mysqli_fetch_array($result);
     return $row;
   }
+
+  /**
+   * Get connection link
+   * @return: mysqli link
+   */
+  function get_link() {
+    return $this->_con;
+  }
 }
 
 global $db;

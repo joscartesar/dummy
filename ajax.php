@@ -14,9 +14,14 @@ if (!isset($_POST['filter'])) {
   }
 }
 else {
-  $sql = "SELECT * FROM rol ";
+//  $filter = filter_input(INPUT_POST, 'filter', FILTER_SANITIZE_STRING);
+  $filter = "";
+  if (ctype_alpha($_POST['filter'])) {
+    $filter = $_POST['filter'];
+  }
+  $sql = "SELECT rol_id, name FROM rol ";
   $sql.= "WHERE name REGEXP ";
-  $sql.= "'^". $_POST['filter']. "'";
+  $sql.= "'^". $filter. "'";
   if ($result = $db->fetch($sql)) {
     while ($row = mysqli_fetch_array($result)) {
       $id = $row['rol_id'];

@@ -1,13 +1,14 @@
 <?php
 include_once("model/db.php");
 include_once("model/post_obj.php");
+include_once("utils.php");
 
 $post = new Post();
 $post->_load($_GET['id']);
 ?>
 
-<h4><?php print $post->get_title(); ?></h4>
-<div><?php print $post->get_body(); ?></div>
+<h4><?php print filter_xss($post->get_title()); ?></h4>
+<div><?php print filter_xss($post->get_body()); ?></div>
 <div><?php print strftime("%A, %d de %B de %Y, %r", $post->get_date()); ?></div>
 <div>
   <ul class="contentParagraph">
