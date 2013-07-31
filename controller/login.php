@@ -1,9 +1,7 @@
 <?php
-include_once("model/user_obj.php");
-include_once("model/session_obj.php");
-include_once("session.php");
-include_once("utils.php");
-
+include_once(PATH_MODEL. "/session_obj.php");
+include_once(PATH_ROOT. "/session.php");
+global $user;
 if ($user->_authenticate($_POST['username'], sha1($_POST['password']))) {
   session_destroy();
   session_start();
@@ -12,10 +10,10 @@ if ($user->_authenticate($_POST['username'], sha1($_POST['password']))) {
   $session->set_user_id($user->get_id());
   $session->set_session_id($_SESSION['session_id']);
   $session->_save();
-  header('Location: http://localhost/dummy/index.php?page=admin');
+  header('Location: http://dev.dummy.local/admin?hola=hola');
 }
 else {
-  header('Location: http://localhost/dummy/index.php');
+  header('Location: http://dev.dummy.local/home');
 }
 
 ?>

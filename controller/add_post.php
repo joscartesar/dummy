@@ -1,7 +1,6 @@
 <?php
-include_once("model/db.php");
-include_once("model/post_obj.php");
-include_once("utils.php");
+include_once(PATH_MODEL. "/db.php");
+include_once(PATH_MODEL. "/post_obj.php");
 
 $post = new Post();
 $post->set_title($_POST['title']);
@@ -17,5 +16,5 @@ if (isset($_POST['tags'])) {
   $post->_save_tags($row['post_id'], $tags, $new);
 }
 
-header('Location: http://localhost/dummy/index.php?page=admin&flang=posts');
+header('Location: http://dev.dummy.local/admin');
 ?>

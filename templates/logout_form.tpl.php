@@ -13,12 +13,11 @@
       <?php include_once(PATH_CONTROLLER. "/menu.php"); ?>
     </div>
     <div id="content">
-      <form action="/controller/delete_user.php" method="post">
+      <form action="/controller/logout.php" method="post">
         <fieldset>
-          <input type="hidden" value="<?php print $_GET['user_id']; ?>" name="user_id" />
-          <label for="id_confirm">¿Realmente desea eleminar este usuario? </label>
           <div>
-            <input id="id_confirm" type="submit" value="Confirmar" />
+            <label for="id_submit">¿Realmente desea cerrar sesión? </label>
+            <input type="submit" value="logout" />
           </div>
         </fieldset>
       </form>

@@ -1,6 +1,6 @@
 <?php
-include_once("./model/db.php");
-include_once("./model/tag_obj.php");
+include_once(PATH_MODEL. "/db.php");
+include_once(PATH_MODEL. "/tag_obj.php");
 
 $tag = new Tag();
 $tag->_load_all();

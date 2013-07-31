@@ -1,6 +1,6 @@
 <?php
-include_once("model/db.php");
-include_once("utils.php");
+include_once(PATH_MODEL. "/db.php");
+include_once(PATH_ROOT. "/utils.php");
 
 $sql = "SELECT COUNT(*) AS count FROM post";
 $row = $db->fetch_row($sql);
@@ -19,9 +19,9 @@ $result = $db->fetch($sql);
 $posts = array();
 while ($row = mysqli_fetch_array($result)) {
   $id = $row['post_id'];
-  $content = array("title" => $row['title'], 
-                   "body" => $row['body'], 
-                   "date" => $row['date'], 
+  $content = array("title" => $row['title'],
+                   "body" => $row['body'],
+                   "date" => $row['date'],
                    "abstract" => $row['abstract']);
   $posts[$id] = $content;
 }
