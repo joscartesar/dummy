@@ -10,10 +10,10 @@
       <?php print $content['block_header']; ?>
     </div>
     <div id="leftmenu">
-      <?php print $content['block_header']; ?>
+      <?php print $content['block_menu']; ?>
     </div>
     <div id="content">
-      <form action="/controller/login.php" method="post">
+      <form action="login_action" method="post">
         <fieldset>
           <div>
             <label for="id_username">Username: </label>

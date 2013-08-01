@@ -1,6 +1,7 @@
 <?php
-$hola = array(
-  'hola' => 'ola k ase',
+$content = array(
+  'block_header' => render('block', 'header' array()),
+  'block_menu' => render('block', 'menu', array()),
 );
-render("login_form", $hola);
+print render('page', 'login_form', $content);
 ?>
