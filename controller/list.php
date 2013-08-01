@@ -20,17 +20,19 @@ $result = $db->fetch($sql);
 $posts = array();
 while ($row = mysqli_fetch_array($result)) {
   $id = $row['post_id'];
-  $content = array("title" => $row['title'],
+  $value = array("title" => $row['title'],
                    "body" => $row['body'],
                    "date" => $row['date'],
                    "abstract" => $row['abstract']);
-  $posts[$id] = $content;
+  $posts[$id] = $value;
 }
 
 $b_content = array(
   'username' => $user->get_username(),
 );
 $content = array(
+  'no_pages' => $no_pages,
+  'posts' => $posts,
   'block_header' => render('block', 'header', $b_content),
   'block_menu' => render('block', 'menu'),
 );

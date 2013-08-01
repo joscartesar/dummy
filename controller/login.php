@@ -1,11 +1,9 @@
 <?php
 global $path_root, $path_model, $user;
-print $path_model;
-exit();
 include_once($path_model. "/user_obj.php");
 include_once($path_model. "/session_obj.php");
 include_once($path_root. "/session.php");
-/*
+
 if ($user->_authenticate($_POST['username'], sha1($_POST['password']))) {
   session_destroy();
   session_start();
@@ -19,5 +17,4 @@ if ($user->_authenticate($_POST['username'], sha1($_POST['password']))) {
 else {
   header('Location: http://dev.dummy.local/home');
 }
-*/
 ?>

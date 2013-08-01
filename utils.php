@@ -45,7 +45,7 @@ function filter_mysql($str) {
  *     $anal - If set to *true*, will remove all non-alphanumeric characters.
  */
 function sanitize_url($string, $force_lowercase = true, $anal = false) {
-    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "=", "+", "[", "{", "]",
                    "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
                    "â€”", "â€“", ",", "<", ".", ">", "?");
     $clean = trim(str_replace($strip, "", strip_tags($string)));

@@ -11,5 +11,15 @@ while ($row = mysqli_fetch_array($result)) {
   $content = array("title" => $row['title']);
   $post[$id] = $content;
 }
-render("admin_post");
+
+$b_content = array(
+  'username' => $user->get_username(),
+);
+$content = array(
+  'post' => $post,
+  'user_rol' => $user->get_user_rol(),
+  'block_header' => render('block', 'header' $b_content),
+  'block_menu' => render('block', 'menu'),
+);
+render('page', 'admin_post', $content);
 ?>
