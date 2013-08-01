@@ -1,6 +1,7 @@
 <?php
-include_once(PATH_MODEL. "/db.php");
-include_once(PATH_ROOT. "/utils.php");
+global $path_root, $path_model;
+include_once($path_model. "/db.php");
+include_once($path_root. "/utils.php");
 
 $sql = "SELECT COUNT(*) AS count FROM post";
 $row = $db->fetch_row($sql);
@@ -29,4 +30,3 @@ while ($row = mysqli_fetch_array($result)) {
 render("list");
 
 ?>
-

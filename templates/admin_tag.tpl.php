@@ -1,15 +1,3 @@
-<?php
-include_once("model/db.php");
-
-$sql = "SELECT * FROM tag";
-$result = $db->fetch($sql);
-$tag = array();
-while ($row = mysqli_fetch_array($result)) {
-  $id = $row['tag_id'];
-  $content = array("name" => $row['name']);
-  $tag[$id] = $content;
-}
-?>
 <p><a href="index.php?page=add_tag">+ Nueva etiqueta</a></p>
 <table cellpadding="5px">
   <thead>

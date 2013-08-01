@@ -2,7 +2,12 @@
 include_once("utils.php");
 include_once("model/db.php");
 
-$url = sanitize_url($_GET['q']);
+if (isset($_GET['q'])) {
+  $url = sanitize_url($_GET['q']);
+}
+else {
+  $url = "home";
+}
 $sql = "SELECT file FROM alias ";
 $sql.= "WHERE url='". $url. "'";
 if ($row = $db->fetch_row($sql)) {

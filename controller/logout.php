@@ -1,7 +1,8 @@
 <?php
-include_once(PATH_MODEL. "/user_obj.php");
-include_once(PATH_MODEL. "/session_obj.php");
-include_once(PATH_ROOT. "/session.php");
+global $path_root, $path_model;
+include_once($path_model. "/user_obj.php");
+include_once($path_model. "/session_obj.php");
+include_once($path_root. "/session.php");
 
 session_destroy();
 $session = new Session;

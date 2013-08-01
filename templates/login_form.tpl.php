@@ -7,10 +7,10 @@
   </head>
   <body>
     <div id="header">
-      <?php include_once(PATH_CONTROLLER. "/header.php"); ?>
+      <?php print $content['block_header']; ?>
     </div>
     <div id="leftmenu">
-      <?php include_once(PATH_CONTROLLER. "/menu.php"); ?>
+      <?php print $content['block_header']; ?>
     </div>
     <div id="content">
       <form action="/controller/login.php" method="post">

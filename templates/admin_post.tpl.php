@@ -1,17 +1,4 @@
-<?php
-include_once("model/db.php");
-include_once("model/user_obj.php");
-
-$sql = "SELECT post_id, title FROM post";
-$result = $db->fetch($sql);
-$post = array();
-while ($row = mysqli_fetch_array($result)) {
-  $id = $row['post_id'];
-  $content = array("title" => $row['title']);
-  $post[$id] = $content;
-}
-?>
-<p><a href="index.php?page=add_post">+ Nueva entrada</a></p>
+<p><a href="admin/post/add">+ Nueva entrada</a></p>
 <table cellpadding="5px">
   <thead>
     <tr>

@@ -2,8 +2,8 @@
 /**
  * @file: utility functions
  */
-
-include_once("model/db.php");
+global $path_model;
+include_once($path_model. "/db.php");
 
 /**
  * pr2: print given object in html
@@ -59,15 +59,21 @@ function sanitize_url($string, $force_lowercase = true, $anal = false) {
 }
 
 /**
- * render, receives the file name of the html template which will show the content of the array
+ * render, receives the file name of the html page or block template which will show the content of the array
+ * @param: $type - String
  * @param: $filename - String
  * @param: $content - Asoc. Array
  * @return: 
  */
-function render($filename, $content = array()) {
+function render($type, $filename, $content = array()) {
   //enable i) storage in an internal output buffer
   ob_start();
-  include 'templates/'. $filename. '.tpl.php';
+  if ($type == 'page') {
+      include 'templates/pages/'. $filename. '.tpl.php';
+  }
+  else if ($type == 'block') {
+      include 'templates/blocks/'. $filename. '.tpl.php';
+  }
   //get the content of the internal buffer
   $output = ob_get_contents();
   //disable i)

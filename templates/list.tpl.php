@@ -1,3 +1,4 @@
+<?php global $path_controller ?>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -7,10 +8,10 @@
   </head>
   <body>
     <div id="header">
-      <?php include_once(PATH_CONTROLLER. "/header.php"); ?>
+      <?php include_once($path_controller. "/header.php"); ?>
     </div>
     <div id="leftmenu">
-      <?php include_once(PATH_CONTROLLER. "/menu.php"); ?>
+      <?php include_once($path_controller. "/menu.php"); ?>
     </div>
     <div id="content">
       <?php foreach ($posts as $key => $value) { ?>

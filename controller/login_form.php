@@ -1,3 +1,6 @@
 <?php
-render("login_form");
+$hola = array(
+  'hola' => 'ola k ase',
+);
+render("login_form", $hola);
 ?>

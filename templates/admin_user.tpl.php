@@ -1,8 +1,3 @@
-<?php
-include_once("model/user_obj.php");
-
-$users = $user->_load_all();
-?>
 <p><a href="index.php?page=add_user">+ Nuevo usuario</a></p>
 <table cellpadding="5px">
   <thead>

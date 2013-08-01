@@ -1,4 +1,4 @@
-<script src="js/rol_admin_table.js"></script>
+<script src="/js/rol_admin_table.js"></script>
 <div>
   <form>
     <label for="id_search">Buscar: </label>
