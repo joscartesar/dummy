@@ -1,10 +1,10 @@
-<?php global $user; ?>
-<h1> ^(º 3º)^ Mi Primer Blog ^(º 3º)^ </h1>
-<?php if ($user->get_username() == ANONYMOUS_USER_USERNAME) { ?>
-<p><a href="login">Login</a></p>
+<div id="header">
+<h1 class="hc"> ^(º 3º)^ Mi Primer Blog ^(º 3º)^ </h1>
+<?php if ($content['username'] == 'anonymous') { ?>
+  <p class="hc"><a class="hc" href="login">Login</a></p>
 <?php } else { ?>
-<p><a href="admin">Administrar</a></p>
-<p><a href="logout">Logout</a></p>
+  <p class="hc"><a class="hc" href="admin">Administrar</a></p>
+  <p class="hc"><a class="hc" href="logout">Logout</a></p>
 <?php } ?>
-<p>Bienvenido usuario <?php print $user->get_username(); ?></p>
-
+<p class="hc">Bienvenido usuario <?php print $content['username']; ?></p>
+</div>
