@@ -1,7 +1,8 @@
 <?php
-include_once(PATH_MODEL. "/db.php");
-include_once(PATH_MODEL. "/post_obj.php");
-include_once(PATH_MODEL. "/tag_obj.php");
+global $path_model;
+include_once($path_model. "/db.php");
+include_once($path_model. "/post_obj.php");
+include_once($path_model. "/tag_obj.php");
 
 $post = new Post();
 $post->set_id($_POST['post_id']);
@@ -21,5 +22,5 @@ else {
   $post->_save_tags($post->get_id(), $not_set, $new);
 }
 
-header('Location: http://dev.dummy.local/admin');
+header('Location: http://dev.dummy.local/admin/posts');
 ?>

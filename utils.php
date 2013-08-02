@@ -78,7 +78,8 @@ function render($type, $filename, $content = array()) {
   $output = ob_get_contents();
   //disable i)
   ob_end_clean();
-  print $output;
+  //print $output;
+  return $output;
 }
 
 ?>

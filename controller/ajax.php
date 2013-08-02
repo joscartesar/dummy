@@ -1,7 +1,7 @@
 <?php
-include_once("model/db.php");
-include_once("model/rol_obj.php");
-include_once("utils.php");
+global $path_model;
+include_once($path_model. "/db.php");
+include_once($path_model. "/rol_obj.php");
 
 $response = array();
 if (!isset($_POST['filter'])) {

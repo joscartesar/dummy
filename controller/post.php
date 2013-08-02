@@ -1,19 +1,20 @@
 <?php
-include_once("model/db.php");
-include_once("model/post_obj.php");
-include_once("utils.php");
+global $path_model;
+include_once($path_model. "/db.php");
+include_once($path_model. "/post_obj.php");
 
 $post = new Post();
-$post->_load($_GET['id']);
-?>
+$post->_load($_GET['post_id']);
 
-<h4><?php print filter_xss($post->get_title()); ?></h4>
-<div><?php print filter_xss($post->get_body()); ?></div>
-<div><?php print strftime("%A, %d de %B de %Y, %r", $post->get_date()); ?></div>
-<div>
-  <ul class="contentParagraph">
-  <?php foreach ($post->_tags as $key => $value) { ?>
-    <li><a href="http://www.google.com"><?php print $value['name']; ?></a></li>
-  <?php } ?>
-  </ul>
-</div>
+$b_content = array(
+  'username' => $user->get_username(),
+);
+$content = array(
+  'sanitized_title' => filter_xss($post->get_title()),
+  'sanitized_body' => filter_xss($post->get_body()),
+  'post' => $post,
+  'block_header' => render('block', 'header', $b_content),
+  'block_menu' => render('block', 'menu'),
+);
+print render('page', 'post', $content);
+?>

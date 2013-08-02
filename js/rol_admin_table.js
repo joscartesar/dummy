@@ -2,7 +2,7 @@ $(document).ready(function() {
   //ajax call
   $.ajax({
     type:"POST",
-    url:"ajax.php",
+    url:"/ajax",
     dataType:"json",
     success:function(data) {
       //rendering json response into a html table
@@ -23,7 +23,7 @@ $(document).ready(function() {
     var filter_value = $(this).val();
     $.ajaxQueue({
       type: "POST",
-      url: "ajax.php",
+      url: "/ajax",
       data: {
         filter: filter_value
       },

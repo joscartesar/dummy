@@ -6,5 +6,5 @@ $content = array(
   'block_header' => render('block', 'header', $b_content),
   'block_menu' => render('block', 'menu'),
 );
-render('page', 'gallery', $content);
+print render('page', 'gallery', $content);
 ?>

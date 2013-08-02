@@ -51,5 +51,5 @@ $content = array(
   'block_menu' => render('block', 'menu'),
   'block_admin_table' => render('block', 'admin_table', $at_content),
 );
-render('page', 'admin_panel', $content);
+print render('page', 'admin_panel', $content);
 ?>
