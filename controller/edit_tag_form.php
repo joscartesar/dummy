@@ -1,4 +1,7 @@
 <?php
+global $path_model;
+include_once($path_model. '/tag_obj.php');
+
 $tag = new Tag();
 $tag->_load($_GET['id']);
 

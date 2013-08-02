@@ -10,7 +10,7 @@
     <?php print $content['block_header']; ?>
     <?php print $content['block_menu']; ?>
     <div id="content">
-      <form action="/controller/edit_rol.php" method="post">
+      <form action="/edit_rol_action" method="post">
         <fieldset>
           <input type="hidden" value="<?php print $content['rol']->get_rol_id(); ?>" name="rol_id" />
           <div>

@@ -1,4 +1,7 @@
 <?php
+global $path_model;
+include_once($path_model. '/rol_obj.php');
+
 $user_add = new User;
 unset($user_add->_id);
 $user_add->set_username($_POST['username']);

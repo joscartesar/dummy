@@ -11,8 +11,8 @@ $(document).ready(function() {
           $("#id_tbody").append('<tr>'+
                                 '<td>'+ index +'</td>'+
                                 '<td>'+ rol_name +'</td>'+
-                                '<td><a href="index.php?page=edit_rol&rol_id='+ index +'">editar</a></td>'+
-                                '<td><a href="index.php?page=delete_rol&rol_id='+ index +'">eliminar</a></td>'+
+                                '<td><a href="/admin/roles/edit?id='+ index +'">editar</a></td>'+
+                                '<td><a href="/admin/roles/delete?id='+ index +'">eliminar</a></td>'+
                                 '</tr>');
       });
     },
@@ -36,8 +36,8 @@ $(document).ready(function() {
             $("#id_tbody").append('<tr>'+
                                   '<td>'+ index +'</td>'+
                                   '<td>'+ rol_name +'</td>'+
-                                  '<td><a href="index.php?page=edit_rol&rol_id='+ index +'">editar</a></td>'+
-                                  '<td><a href="index.php?page=delete_rol&rol_id='+ index +'">eliminar</a></td>'+
+                                  '<td><a href="/admin/roles/edit?id='+ index +'">editar</a></td>'+
+                                  '<td><a href="/admin/roles/delete?id='+ index +'">eliminar</a></td>'+
                                   '</tr>');
         });
       },

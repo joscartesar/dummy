@@ -8,7 +8,7 @@ while ($row = mysqli_fetch_array($result)) {
   $roles[$id] = $content;
 }
 $user_edit = new User;
-$user_edit->_load($_GET['user_id']);
+$user_edit->_load($_GET['id']);
 $rol = $user_edit->get_user_rol();
 
 $b_content = array(
@@ -16,7 +16,7 @@ $b_content = array(
 );
 
 $content = array(
-  'id' => $_GET['user_id'],
+  'id' => $_GET['id'],
   'user' => $user_edit,
   'roles' => $roles,
   'rol' => $rol,
