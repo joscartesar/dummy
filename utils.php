@@ -82,5 +82,91 @@ function render($type, $filename, $content = array()) {
   return $output;
 }
 
+/**
+ * render_form, receives an array with the form setting and returns the html form
+ * @param: $form, Asoc.Array
+ * @return: $form_html, String
+ */
+function render_form($form) {
+  $form_html = '<form ';
+  $options = '';
+  // *) render the attributes of the form tag
+  foreach ($form['#attributes'] as $attribute => $value) {
+    if ($attribute == '#name') {
+      $form_html.= 'name="'. $value. '" ';
+    }
+    else if ($attribute == '#action') {
+      $form_html.= 'action="'. $value. '" ';
+    }
+    else if ($attribute == '#method') {
+      $form_html.= 'method="'. $value. '" ';
+    }
+  }
+  $form_html.= '>';
+  // *) render each element inside the form
+  foreach ($form['#elements'] as $element_id => $attributes) {
+    // *) for each element render its attributes
+    unset($label);
+    $attr = ' ';
+    foreach ($attributes as $attribute => $value) {
+      if ($attribute == '#element') {
+        $element = $value;
+      }
+      else if ($attribute == '#type') {
+        $attr.= 'type="'. $value. '" ';
+      }
+      else if ($attribute == '#name') {
+        $attr.= 'name="'. $value. '" ';
+      }
+      else if ($attribute == '#value') {
+        $attr.= 'value="'. $value. '" ';
+      }
+      else if ($attribute == '#label') {
+        $label = '<label for="'. $element_id. '">'. $value. '</label>';
+      }
+      else if ($attribute == '#maxlength') {
+        $attr.= 'maxlength="'. $value. '" ';
+      }
+      else if ($attribute == '#required') {
+        $attr.= 'required ';
+      }
+      else if ($attribute == '#options') {
+        foreach ($value as $opt_key => $opt_value) {
+          $options.= '<option value="'. strtolower($opt_value).'">'. $opt_value.'</option>';
+        }
+      }
+      else if ($attribute == '#text') {
+        $text = $value;
+      }
+      else if ($attribute == '#button_text') {
+        $button_text = $value;
+      }
+    }
+
+    if (empty($label)) {
+      $form_html.= '<div><'. $element. ' id="'. $element_id. '"'. $attr;
+    }
+    else {
+      $form_html.= '<div>'. $label. '<'. $element. ' id="'. $element_id. '"'. $attr;
+    }
+
+    if ($element == 'input') {
+      $form_html.= '/></div>';
+    }
+    else if ($element == 'textarea') {
+      $form_html.= '>'. $text.'</textarea></div>';
+    }
+    else if ($element == 'button') {
+      $form_html.= '>'. $button_text.'</button></div>';
+    }
+    else if ($element == 'select') {
+      $form_html.= '>'. $options.'</select></div>';
+    }
+  }
+
+  $form_html.= '</form>';
+  return $form_html;
+}
+
 ?>
 

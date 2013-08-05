@@ -10,21 +10,7 @@
     <?php print $content['block_header']; ?>
     <?php print $content['block_menu']; ?>
     <div id="content">
-      <form action="login_action" method="post">
-        <fieldset>
-          <div>
-            <label for="id_username">Username: </label>
-            <input id="id_username" type="text" name="username" />
-          </div>
-          <div>
-            <label for="id_password">Password: </label>
-            <input id="id_password" type="password" name="password" />
-          </div>
-          <div>
-            <input type="submit" value="login" />
-          </div>
-        </fieldset>
-      </form>
+      <?php print $content['form_login']; ?>
     </div>
   </body>
 </html>
